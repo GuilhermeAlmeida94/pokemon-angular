@@ -1,0 +1,34 @@
+.half-circle-top {
+    width: 90px;
+    height: 45px;
+    border-top-left-radius: 110px;
+    border-top-right-radius: 110px;
+    border: 10px solid;
+    border-bottom: 0;
+}
+.half-circle-bottom {
+    width: 90px;
+    height: 45px;
+    border-bottom-left-radius: 110px;
+    border-bottom-right-radius: 110px;
+    border: 10px solid;
+    border-top: 0;
+}
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 35px;
+}
+.text-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+.text-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}

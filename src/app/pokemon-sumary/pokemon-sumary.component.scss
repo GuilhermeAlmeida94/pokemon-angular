@@ -1,9 +1,21 @@
 .summary {
-    display: inline-block;
     width: 20em;
     height: 13em;
     padding: .5em;
     margin: .5em;
     border-radius: 1em;
-    box-shadow: 1px 1px 10px 1px #000000;
+    box-shadow: 1px 1px 10px 1px gray;
+}
+.flex-container-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.flex-container-image {
+    display: flex;
+    justify-content: space-around;
+}
+.text-footer {
+    display: flex;
+    justify-content: center;
 }

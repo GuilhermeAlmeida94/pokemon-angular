@@ -1,5 +1,6 @@
 <div
-  *ngIf="pokemonList">
+  *ngIf="pokemonList"
+  class="flex-container">
   <app-pokemon-sumary
     *ngFor="let pokemon of pokemonList.results"
     [pokemon]="pokemon">

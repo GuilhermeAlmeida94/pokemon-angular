@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { PokemonList } from '../models/pokemon-list';
+import { PokemonForm } from '../models/pokemon-form';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
   private url = environment.url;
+  private urlImage = environment.urlImage;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -16,4 +18,11 @@ export class PokemonService {
     return this.httpClient.get<PokemonList>(`${this.url}pokemon/`);
   }
 
+  public getPokemonImageById(pokemonId: string): string {
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
+  }
+
+  public getForm(pokemonId: string): Observable<PokemonForm> {
+    return this.httpClient.get<PokemonForm>(`${this.url}pokemon-form/${pokemonId}`);
+  }
 }

@@ -1,7 +1,13 @@
 <!-- <a [href]="pokemon.url"> -->
   <div class="summary">
       <app-pokeball-loading *ngIf="!pokemon"></app-pokeball-loading>
-      <img *ngIf="pokemon" [src]="pokemonSpriteUrl" />
-      <span color="primary">{{ pokemonTitle }}</span>
+
+      <div *ngIf="pokemon" class="flex-container-content">
+        <div class="flex-container-image">
+          <app-wheel-types [types]="pokemonTypes"></app-wheel-types>
+          <img *ngIf="pokemon" [src]="pokemonSpriteUrl" />
+        </div>
+        <span class="text-footer">{{ pokemonTitle }}</span>
+      </div>
   </div>
 <!-- </a> -->
