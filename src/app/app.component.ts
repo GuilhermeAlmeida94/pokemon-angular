@@ -14,10 +14,30 @@ export class AppComponent implements OnInit {
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.pokemonService.getList()
+    this.getMainInformation();
+  }
+
+  private getMainInformation(sufix?: string): void {
+    this.pokemonService.getList(sufix)
       .subscribe(
         result => this.pokemonList = result,
         _ => this.pokemonList = null
       );
+  }
+
+  public previousList(): void {
+    if (this.pokemonList.previous) {
+      const previousParts = this.pokemonList.previous.split('?');
+      const sufix = `?${previousParts[previousParts.length - 1]}`;
+      this.getMainInformation(sufix);
+    }
+  }
+
+  public nextList(): void {
+    if (this.pokemonList.next) {
+      const nextParts = this.pokemonList.next.split('?');
+      const sufix = `?${nextParts[nextParts.length - 1]}`;
+      this.getMainInformation(sufix);
+    }
   }
 }

@@ -14,8 +14,9 @@ export class PokemonService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getList(): Observable<PokemonList> {
-    return this.httpClient.get<PokemonList>(`${this.url}pokemon/`);
+  public getList(sufix?: string): Observable<PokemonList> {
+    if (!sufix) { sufix = ''; }
+    return this.httpClient.get<PokemonList>(`${this.url}pokemon/${sufix}`);
   }
 
   public getPokemonImageById(pokemonId: string): string {

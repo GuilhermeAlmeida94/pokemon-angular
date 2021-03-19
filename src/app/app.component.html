@@ -6,3 +6,16 @@
     [pokemon]="pokemon">
   </app-pokemon-sumary>
 </div>
+
+<div
+  *ngIf="pokemonList"
+  class="flex-container-row">
+  <input
+    type="button"
+    (click)="previousList()"
+    value="Previous"/>
+  <input
+    type="button"
+    (click)="nextList()"
+    value="Next"/>
+</div>
