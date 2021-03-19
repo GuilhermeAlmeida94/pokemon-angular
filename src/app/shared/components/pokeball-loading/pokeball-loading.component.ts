@@ -1,0 +1,10 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-pokeball-loading',
+  templateUrl: './pokeball-loading.component.html',
+  styleUrls: ['./pokeball-loading.component.scss']
+})
+export class PokeballLoadingComponent {
+  constructor() { }
+}

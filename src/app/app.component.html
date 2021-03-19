@@ -1,7 +1,7 @@
-<div *ngIf="pokemonList">
-  <div 
-    class="summary"
-    *ngFor="let pokemon of pokemonList.results">
-    <a [href]="pokemon.url">{{ pokemon.name }}</a>
-  </div>
+<div
+  *ngIf="pokemonList">
+  <app-pokemon-sumary
+    *ngFor="let pokemon of pokemonList.results"
+    [pokemon]="pokemon">
+  </app-pokemon-sumary>
 </div>

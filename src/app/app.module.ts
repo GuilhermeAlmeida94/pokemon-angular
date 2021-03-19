@@ -6,17 +6,19 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { PokemonSumaryComponent } from './pokemon-sumary/pokemon-sumary.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
-      PokemonSumaryComponent
+    PokemonSumaryComponent
    ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

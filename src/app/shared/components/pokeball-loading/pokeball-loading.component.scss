@@ -1,0 +1,44 @@
+
+
+
+$size: 30px;
+$border-size: $size * 4/3;
+.pokeball {
+    height: $size * 2;
+    width: $size * 2;
+    background-color: #fff;
+    border-radius: 50% ;
+    position: relative;
+    overflow: hidden;
+    border: $border-size/10 solid; // outter ring
+    animation: frames .8s  linear 0s infinite;
+}
+.pokeball:after{
+    content: '';
+    position: absolute;
+    height: $size * 29/30;
+    width: $size * 2;
+    background-color: red;
+    border-bottom: $border-size/10 solid; // middle line
+}  
+.pokeball:before{
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    width: $size / 4;
+    height: $size / 4;
+    border: $border-size/10 solid; // inner ring
+    border-radius: 50%;
+    bottom: $size * 3/4;
+    right: $size * 3/4;
+    z-index: 1;
+    
+  }
+@keyframes frames{
+    0% {
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
