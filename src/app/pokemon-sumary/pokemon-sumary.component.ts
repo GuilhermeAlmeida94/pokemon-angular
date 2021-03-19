@@ -12,6 +12,20 @@ export class PokemonSumaryComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
+
+  get pokemonNumber(): string {
+    const urlParts = this.pokemon.url.split('/');
+    return urlParts[urlParts.length - 2]
+  }
+
+  get pokemonTitle(): string {
+    return `#${this.pokemonNumber.padStart(3, '0')} - ${this.pokemon.name}`;
+  }
+
+  get pokemonSpriteUrl(): string {
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.pokemonNumber}.png`;
+  }
 
 }
