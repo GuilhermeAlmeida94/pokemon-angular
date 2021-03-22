@@ -1,5 +1,5 @@
-import { Types } from './types';
+import { SlotType } from './slot-type';
 
 export interface PokemonForm {
-    types: Types[];
+    types: SlotType[];
 }

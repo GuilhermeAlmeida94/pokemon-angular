@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PokemonDetail } from '../models/pokemon-detail';
 import { PokemonForm } from '../models/pokemon-form';
+import { PokemonItem } from '../models/pokemon-item';
 import { PokemonService } from '../services/pokemon.service';
 
 @Component({
@@ -11,17 +12,17 @@ import { PokemonService } from '../services/pokemon.service';
 export class PokemonSumaryComponent implements OnChanges {
 
   @Input() pokemon: PokemonDetail;
-  pokemonForm: PokemonForm = null;
+  pokemonItem: PokemonItem = null;
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.pokemon) {
-      this.pokemonService.getForm(this.pokemonId)
+      this.pokemonService.getItem(this.pokemonId)
         .subscribe(
-          result => this.pokemonForm = result,
-          _ => this.pokemonForm = null
-        );
+          result => this.pokemonItem = result,
+          _ => this.pokemonItem = null
+        )
     }
   }
 
@@ -35,14 +36,18 @@ export class PokemonSumaryComponent implements OnChanges {
   }
 
   get pokemonSpriteUrl(): string {
-    return this.pokemonService.getPokemonImageById(this.pokemonId);
+    return this.pokemonItem.sprites.front_default;
   }
 
   get pokemonTypes(): string[] {
-    if (this.pokemonForm) {
-      return this.pokemonForm.types.map(types => types.type.name);
+    if (this.pokemonItem) {
+      return this.pokemonItem.types.map(types => types.type.name);
     } else {
       return [];
     }
+  }
+
+  get stats(): string {
+    return this.pokemonItem.stats.map(stat => `${stat.stat.name}: ${stat.base_stat}`).join(', ');
   }
 }

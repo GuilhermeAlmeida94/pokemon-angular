@@ -1,7 +1,6 @@
 .summary {
-    width: 20em;
-    height: 13em;
-    padding: .5em;
+    width: 25em;
+    height: 15em;
     margin: .5em;
     border-radius: 1em;
     box-shadow: 1px 1px 10px 1px gray;
@@ -18,4 +17,18 @@
 .text-footer {
     display: flex;
     justify-content: center;
+}
+
+.side {
+    height: 100%;
+    width: 35%;
+    float: left;
+    display: flex;
+    justify-content: space-around;
+}
+.content {
+    height: 100%;
+    width: 65%;
+    float: right;
+    border-radius: 0em 1em 1em 0em;
 }

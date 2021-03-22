@@ -1,6 +1,6 @@
 import { Type } from './type';
 
-export interface Types {
+export interface SlotType {
     slot: number;
     type: Type;
 }
