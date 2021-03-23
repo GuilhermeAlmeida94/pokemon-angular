@@ -3,6 +3,7 @@ import { PokemonDetail } from '../models/pokemon-detail';
 import { PokemonForm } from '../models/pokemon-form';
 import { PokemonItem } from '../models/pokemon-item';
 import { PokemonService } from '../services/pokemon.service';
+import { ColorType } from '../shared/util/color-type';
 
 @Component({
   selector: 'app-pokemon-sumary',
@@ -31,14 +32,29 @@ export class PokemonSumaryComponent implements OnChanges {
     return urlParts[urlParts.length - 2];
   }
 
-  get pokemonTitle(): string {
-    return `#${this.pokemonId.padStart(3, '0')} - ${this.pokemon.name}`;
+  get pokemonIdFormated(): string {
+    return `#${this.pokemonId.padStart(3, '0')}`;
+  }
+
+  get firstType(): string {
+    return this.pokemonTypes[0];
+  }
+
+  get colorSide(): string {
+    return ColorType.getColorByType(this.firstType, '.6');
+  }
+
+  get colorContent(): string {
+    return ColorType.getColorByType(this.firstType, '.8');
   }
 
   get pokemonSpriteUrl(): string {
     return this.pokemonItem.sprites.front_default;
   }
 
+  get pokemonDescription(): string {
+    return 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+  }
   get pokemonTypes(): string[] {
     if (this.pokemonItem) {
       return this.pokemonItem.types.map(types => types.type.name);

@@ -1,15 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ColorType } from '../shared/util/color-type';
+import { ColorType } from '../../util/color-type';
 
 @Component({
-  selector: 'app-wheel-types-shadow',
-  templateUrl: './wheel-types-shadow.component.html',
-  styleUrls: ['./wheel-types-shadow.component.scss']
+  selector: 'app-wheel-types',
+  templateUrl: './wheel-types.component.html',
+  styleUrls: ['./wheel-types.component.scss']
 })
-export class WheelTypesShadowComponent  {
+export class WheelTypesComponent  {
 
   @Input() types: string[];
-  @Input() spriteUrl: string;
 
   constructor() { }
 
@@ -31,9 +30,5 @@ export class WheelTypesShadowComponent  {
 
   get secondColor(): string {
     return ColorType.getColorByType(this.hasSecondType ? this.secondType : this.firstType);
-  }
-
-  get boxShadow(): string {
-    return `0px -5px 10px 1px ${this.firstColor}, 0px 5px 10px 1px ${this.secondColor}`;
   }
 }

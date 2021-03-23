@@ -1,42 +1,44 @@
 export class ColorType {
-    static getColorByType(color: string): string {
-        switch(color) {
+    static getColorByType(color: string, a?: string): string {
+        if (a) { a = `, ${a}`; }
+        if (!a) { a = ''; }
+        switch (color) {
             case 'normal':
-                return '#A8A77A';
+                return `rgb(168,167,122${a})`;
             case 'fire':
-                return '#EE8130';
+                return `rgba(238,129,48${a})`;
             case 'water':
-                return '#6390F0';
+                return `rgb(99,144,240${a})`;
             case 'electric':
-                return '#F7D02C';
+                return `rgb(247,208,44${a})`;
             case 'grass':
-                return '#7AC74C';
+                return `rgb(122,199,76${a})`;
             case 'ice':
-                return '#96D9D6';
+                return `rgb(150,217,214${a})`;
             case 'fighting':
-                return '#C22E28';
+                return `rgb(194,46,40${a})`;
             case 'poison':
-                return '#A33EA1';
+                return `rgb(163,62,161${a})`;
             case 'ground':
-                return '#E2BF65';
+                return `rgb(226,191,101${a})`;
             case 'flying':
-                return '#A98FF3';
+                return `rgb(169,143,243${a})`;
             case 'psychic':
-                return '#F95587';
+                return `rgb(249,85,135${a})`;
             case 'bug':
-                return '#A6B91A';
+                return `rgb(166,185,26${a})`;
             case 'rock':
-                return '#B6A136';
+                return `rgb(182,161,54${a})`;
             case 'ghost':
-                return '#735797';
+                return `rgb(115,87,151${a})`;
             case 'dragon':
-                return '#6F35FC';
+                return `rgb(111,53,252${a})`;
             case 'dark':
-                return '#705746';
+                return `rgb(112,87,70${a})`;
             case 'steel':
-                return '#B7B7CE';
+                return `rgb(183,183,206${a})`;
             case 'fairy':
-                return '#D685AD';
+                return `rgb(214,133,173${a})`;
         }
     }
 }
