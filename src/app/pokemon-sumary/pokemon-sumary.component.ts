@@ -14,6 +14,7 @@ export class PokemonSumaryComponent implements OnChanges {
 
   @Input() pokemon: PokemonDetail;
   pokemonItem: PokemonItem = null;
+  pokemonFlavor: string = null;
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -23,7 +24,13 @@ export class PokemonSumaryComponent implements OnChanges {
         .subscribe(
           result => this.pokemonItem = result,
           _ => this.pokemonItem = null
-        )
+        );
+
+      this.pokemonService.getSpecies(this.pokemonId)
+      .subscribe(
+        result => this.pokemonFlavor = result.flavor_text_entries[0].flavor_text,
+        _ => this.pokemonFlavor = null
+      );
     }
   }
 
@@ -53,7 +60,7 @@ export class PokemonSumaryComponent implements OnChanges {
   }
 
   get pokemonDescription(): string {
-    return 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+    return this.pokemonFlavor;
   }
   get pokemonTypes(): string[] {
     if (this.pokemonItem) {

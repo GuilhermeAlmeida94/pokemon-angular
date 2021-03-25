@@ -1,8 +1,23 @@
-.flex-container {
+header {
+    position: fixed;
+    width: 100%;
+    margin: 0px -8px;
+    padding: 1em;
+    background-color: #ED2939;
+    color: white;
+}
+.title {
+    font-size: 1.2em;
+}
+main {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    margin: -8px;
+    padding-top: 4em;
+    background-color: #E5F6DF;
 }
-.flex-container-row {
+footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;

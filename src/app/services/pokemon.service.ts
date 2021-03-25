@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { PokemonList } from '../models/pokemon-list';
 import { PokemonForm } from '../models/pokemon-form';
 import { PokemonItem } from '../models/pokemon-item';
+import { PokemonSpecies } from '../models/pokemon-species';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,9 @@ export class PokemonService {
 
   public getForm(pokemonId: string): Observable<PokemonForm> {
     return this.httpClient.get<PokemonForm>(`${this.url}pokemon-form/${pokemonId}`);
+  }
+
+  public getSpecies(pokemonId: string): Observable<PokemonSpecies> {
+    return this.httpClient.get<PokemonSpecies>(`${this.url}pokemon-species/${pokemonId}`);
   }
 }

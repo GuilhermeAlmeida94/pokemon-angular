@@ -1,15 +1,18 @@
-<div
+<header>
+  <span class="title">Pokémon Angular</span>
+</header>
+<main
   *ngIf="pokemonList"
-  class="flex-container">
+  class="container">
   <app-pokemon-sumary
     *ngFor="let pokemon of pokemonList.results"
     [pokemon]="pokemon">
   </app-pokemon-sumary>
-</div>
+</main>
 
-<div
+<footer
   *ngIf="pokemonList"
-  class="flex-container-row">
+  class="footer">
   <input
     type="button"
     (click)="previousList()"
@@ -18,4 +21,4 @@
     type="button"
     (click)="nextList()"
     value="Next"/>
-</div>
+</footer>
