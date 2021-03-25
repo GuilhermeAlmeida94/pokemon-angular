@@ -1,30 +1,35 @@
 <!-- <a [href]="pokemon.url"> -->
 <!-- </a> --> 
-  <div class="summary">
-      <div class="side" [style.background-color]="colorSide">
-        <div class="side-header">
-          {{ pokemonIdFormated }}
-        </div>
-
-        <app-sprite-wheel
-          *ngIf="pokemonItem"
-          [spriteUrl]="pokemonSpriteUrl">
-        </app-sprite-wheel>
-
-        <div class="side-footer">
-        </div>
+  <div class="summary"
+    (mouseover)="setDivStatusVisibility(true)"
+    (mouseout)="setDivStatusVisibility(false)">
+    <div class="side" [style.background-color]="colorSide">
+      <div class="side-header">
+        {{ pokemonIdFormated }}
       </div>
 
-      <div class="content" [style.background-color]="colorContent">
-        <h2 class="content-header">
-          {{ pokemon.name | titlecase }}
-        </h2>
-        <div class="content-main" *ngIf="pokemonFlavor">
-          {{ pokemonDescription }}
-        </div>
-        <div class="content-footer">
-          <app-chip-type-list [types]="pokemonTypes">
-          </app-chip-type-list>
-        </div>
+      <app-sprite-wheel
+        *ngIf="pokemonItem"
+        [spriteUrl]="pokemonSpriteUrl">
+      </app-sprite-wheel>
+
+      <div class="side-footer">
       </div>
+    </div>
+
+    <div class="content" [style.background-color]="colorContent">
+      <h2 class="content-header">
+        {{ pokemon.name | titlecase }}
+      </h2>
+      <div class="content-main" *ngIf="pokemonFlavor && !isStatusShowed">
+        {{ pokemonDescription }}
+      </div>
+      <div class="content-footer" *ngIf="!isStatusShowed">
+        <app-chip-type-list [types]="pokemonTypes">
+        </app-chip-type-list>
+      </div>
+      <div class="content-hidden" *ngIf="pokemonItem && isStatusShowed">
+        {{ stats }}
+      </div>
+    </div>
   </div>

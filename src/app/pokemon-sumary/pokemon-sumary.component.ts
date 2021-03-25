@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PokemonDetail } from '../models/pokemon-detail';
-import { PokemonForm } from '../models/pokemon-form';
 import { PokemonItem } from '../models/pokemon-item';
 import { PokemonService } from '../services/pokemon.service';
 import { ColorType } from '../shared/util/color-type';
@@ -15,6 +14,7 @@ export class PokemonSumaryComponent implements OnChanges {
   @Input() pokemon: PokemonDetail;
   pokemonItem: PokemonItem = null;
   pokemonFlavor: string = null;
+  isStatusShowed = false;
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -72,5 +72,9 @@ export class PokemonSumaryComponent implements OnChanges {
 
   get stats(): string {
     return this.pokemonItem.stats.map(stat => `${stat.stat.name}: ${stat.base_stat}`).join(', ');
+  }
+
+  setDivStatusVisibility(visible: boolean): void {
+    this.isStatusShowed = visible;
   }
 }
