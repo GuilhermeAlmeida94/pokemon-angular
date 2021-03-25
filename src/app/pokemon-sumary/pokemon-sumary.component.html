@@ -12,8 +12,6 @@
         </app-sprite-wheel>
 
         <div class="side-footer">
-          <app-chip-type-list [types]="pokemonTypes">
-          </app-chip-type-list>
         </div>
       </div>
 
@@ -21,11 +19,12 @@
         <h2 class="content-header">
           {{ pokemon.name | titlecase }}
         </h2>
-        <div class="content-main">
+        <div class="content-main" *ngIf="pokemonFlavor">
           {{ pokemonDescription }}
         </div>
         <div class="content-footer">
-          
+          <app-chip-type-list [types]="pokemonTypes">
+          </app-chip-type-list>
         </div>
       </div>
   </div>

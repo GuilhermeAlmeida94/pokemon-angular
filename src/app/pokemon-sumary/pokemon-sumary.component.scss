@@ -1,16 +1,16 @@
 $main-color: rgb(255, 255, 255);
 
 .summary {
-    width: 25em;
-    height: 15em;
-    margin: .5em;
+    width: 22em;
+    height: 11em;
+    margin: 0.5em 0em;
     border-radius: 1em;
     box-shadow: 1px 1px 10px 1px gray;
 }
 
 .side {
     height: 100%;
-    width: 35%;
+    width: 40%;
     float: left;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@ $main-color: rgb(255, 255, 255);
 
 .content {
     height: 100%;
-    width: 65%;
+    width: 60%;
     float: right;
     border-radius: 0em 1em 1em 0em;
 }
@@ -43,12 +43,15 @@ $main-color: rgb(255, 255, 255);
     justify-content: center;
     color: $main-color;
     margin-block-end: 0em;
+    margin-block-start: 0.5em;
+    height: 15%;
 }
 .content-main {
     color: $main-color;
     padding: .5em;
     text-align: justify;
+    height: 53%;
 }
 .content-footer {
-    height: 20%;
+    height: 10%;
 }

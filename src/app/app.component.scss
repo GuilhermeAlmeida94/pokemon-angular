@@ -1,8 +1,9 @@
+$main-background-color: #E5F6DF;
 header {
     position: fixed;
     width: 100%;
     margin: 0px -8px;
-    padding: 1em;
+    padding: 1.5em 1em 1em 1em;
     background-color: #ED2939;
     color: white;
 }
@@ -15,10 +16,25 @@ main {
     justify-content: space-around;
     margin: -8px;
     padding-top: 4em;
-    background-color: #E5F6DF;
+    background-color: $main-background-color;
 }
 footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin: 0px -8px;
+    padding: 15px 0px 15px 0px;
+    background-color: $main-background-color;
+}
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: #FFFFFF;
+    padding: 13px 28px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
 }

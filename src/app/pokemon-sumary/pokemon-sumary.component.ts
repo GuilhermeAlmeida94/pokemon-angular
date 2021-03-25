@@ -60,7 +60,7 @@ export class PokemonSumaryComponent implements OnChanges {
   }
 
   get pokemonDescription(): string {
-    return this.pokemonFlavor;
+    return this.pokemonFlavor.replace('\f', ' ');
   }
   get pokemonTypes(): string[] {
     if (this.pokemonItem) {

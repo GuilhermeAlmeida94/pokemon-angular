@@ -2,8 +2,7 @@
   <span class="title">Pokémon Angular</span>
 </header>
 <main
-  *ngIf="pokemonList"
-  class="container">
+  *ngIf="pokemonList">
   <app-pokemon-sumary
     *ngFor="let pokemon of pokemonList.results"
     [pokemon]="pokemon">
@@ -11,14 +10,11 @@
 </main>
 
 <footer
-  *ngIf="pokemonList"
-  class="footer">
-  <input
-    type="button"
-    (click)="previousList()"
-    value="Previous"/>
-  <input
-    type="button"
-    (click)="nextList()"
-    value="Next"/>
+  *ngIf="pokemonList">
+  <button (click)="previousList()">
+    Previous
+  </button>
+  <button (click)="nextList()">
+    Next
+  </button>
 </footer>
