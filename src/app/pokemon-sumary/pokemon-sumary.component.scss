@@ -55,3 +55,21 @@ $main-color: rgb(255, 255, 255);
 .content-footer {
     height: 10%;
 }
+
+.content-stats {
+    color: $main-color;
+    padding: .5em;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-name: fade-bottom-up;
+ }
+ @keyframes fade-bottom-up {
+    0% {
+       opacity: 0;
+       transform: translateY(5em);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }
