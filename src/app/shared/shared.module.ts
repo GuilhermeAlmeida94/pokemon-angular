@@ -6,6 +6,7 @@ import { WheelTypesShadowComponent } from './components/wheel-types-shadow/wheel
 import { ChipTypeComponent } from './components/chip-type/chip-type.component';
 import { ChipTypeListComponent } from './components/chip-type-list/chip-type-list.component';
 import { SpriteWheelComponent } from './components/sprite-wheel/sprite-wheel.component';
+import { WheelStatComponent } from './components/wheel-stat/wheel-stat.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { SpriteWheelComponent } from './components/sprite-wheel/sprite-wheel.com
     WheelTypesShadowComponent,
     ChipTypeComponent,
     ChipTypeListComponent,
-    SpriteWheelComponent
+    SpriteWheelComponent,
+    WheelStatComponent
   ],
   exports: [
     PokeballLoadingComponent,
@@ -25,7 +27,8 @@ import { SpriteWheelComponent } from './components/sprite-wheel/sprite-wheel.com
     WheelTypesShadowComponent,
     ChipTypeComponent,
     ChipTypeListComponent,
-    SpriteWheelComponent
+    SpriteWheelComponent,
+    WheelStatComponent
   ]
 })
 export class SharedModule { }

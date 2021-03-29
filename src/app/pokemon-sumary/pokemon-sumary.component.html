@@ -1,5 +1,5 @@
 <!-- <a [href]="pokemon.url"> -->
-<!-- </a> --> 
+<!-- </a> -->
   <div class="summary"
     (mouseover)="setDivStatusVisibility(true)"
     (mouseout)="setDivStatusVisibility(false)">
@@ -29,7 +29,8 @@
         </app-chip-type-list>
       </div>
       <div class="content-stats" *ngIf="pokemonItem && isStatusShowed">
-        {{ stats }}
+        <app-wheel-stat></app-wheel-stat>
+        <!-- {{ stats }} -->
       </div>
     </div>
   </div>
