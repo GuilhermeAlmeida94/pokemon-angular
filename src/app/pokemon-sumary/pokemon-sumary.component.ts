@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { NextObserver } from 'rxjs';
 import { PokemonDetail } from '../models/pokemon-detail';
 import { PokemonItem } from '../models/pokemon-item';
 import { PokemonService } from '../services/pokemon.service';
@@ -20,17 +21,18 @@ export class PokemonSumaryComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.pokemon) {
+      const nextPokemonGetItemObserver: NextObserver<PokemonItem> = {
+        next: value => this.pokemonItem = value,
+        error: this.pokemonItem = null
+      };
       this.pokemonService.getItem(this.pokemonId)
-        .subscribe(
-          result => this.pokemonItem = result,
-          _ => this.pokemonItem = null
-        );
+        .subscribe(nextPokemonGetItemObserver);
 
       this.pokemonService.getSpecies(this.pokemonId)
-      .subscribe(
-        result => this.pokemonFlavor = result.flavor_text_entries[0].flavor_text,
-        _ => this.pokemonFlavor = null
-      );
+      .subscribe({
+        next: value => this.pokemonFlavor = value.flavor_text_entries[0].flavor_text,
+        error: this.pokemonFlavor = null
+      });
     }
   }
 
